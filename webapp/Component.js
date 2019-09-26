@@ -1,30 +1,22 @@
 sap.ui.define([
-	"sap/ui/core/UIComponent",
-	"sap/ui/Device",
-	"fin/gl/template/model/models"
-], function (UIComponent, Device, models) {
+	"sap/ui/core/UIComponent"
+], function (UIComponent) {
 	"use strict";
 
-	return UIComponent.extend("fin.gl.template.Component", {
+	return UIComponent.extend("sap.ui.demo.nav.Component", {
 
 		metadata: {
 			manifest: "json"
 		},
 
-		/**
-		 * The component is initialized by UI5 automatically during the startup of the app and calls the init method once.
-		 * @public
-		 * @override
-		 */
 		init: function () {
-			// call the base component's init function
+			// call the init function of the parent
 			UIComponent.prototype.init.apply(this, arguments);
 
-			// enable routing
+			// create the views based on the url/hash
 			this.getRouter().initialize();
-
-			// set the device model
-			this.setModel(models.createDeviceModel(), "device");
 		}
+
 	});
+
 });
